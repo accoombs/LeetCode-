@@ -1,0 +1,18 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        start, end = 0, len(s)-1
+        while start < end:
+            while start < end and self.checkLetter(s[start]) is False:
+                start+=1
+            while start < end and self.checkLetter(s[end]) is False:
+                end -=1
+            if s[start].lower() != s[end].lower():
+                return False
+            start+=1
+            end-=1
+        return True
+    
+    def checkLetter(self, l):
+        if ord('A') <= ord(l) <= ord('Z') or ord('a') <= ord(l) <= ord('z') or ord('0') <= ord(l) <= ord('9'):
+            return True
+        return False
