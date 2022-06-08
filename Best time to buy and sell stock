@@ -1,0 +1,13 @@
+def maxProfit(self, prices):
+        max = prices[0]
+        min = prices[0]
+        dif = 0
+        for i in prices:
+            if(min > i):
+                min = i
+                max = i
+            elif(max < i):
+                max = i
+            if(max-min > dif):
+                dif = max-min
+        return dif
