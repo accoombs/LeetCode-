@@ -1,0 +1,15 @@
+def isValid(self, s):
+        stack = []
+        closing = {")":"(", "]":"[", "}":"{" }
+        
+        for i in s:
+            if i not in closing:
+                stack.append(i)
+                continue
+            if(not stack or closing[i] != stack[-1]):
+                return False
+            stack.pop()
+        if stack:
+            return False
+        else:
+            return True
