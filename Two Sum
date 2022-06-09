@@ -1,0 +1,12 @@
+def twoSum(self, numbers, target):
+        
+        lower = 0
+        higher = len(numbers)-1
+        
+        while(lower<higher):
+            if(numbers[lower]+numbers[higher] < target):
+                lower+=1
+            elif(numbers[lower]+numbers[higher] > target):
+                higher-=1
+            else:
+                return [lower+1,higher+1]
