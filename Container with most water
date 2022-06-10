@@ -1,0 +1,20 @@
+def maxArea(self, height):
+        l = 0
+        r = len(height)-1
+        vol = self.volumeOf(height, l, r)
+        
+        while(r>l):
+            if(height[l] < height[r]):
+                l+=1
+            else:
+                r-=1
+            cur = self.volumeOf(height, l, r)
+            if(cur > vol):
+                vol = cur
+        return vol
+          
+    def volumeOf(self, height, l, r):
+        if(height[l]<height[r]):
+            return height[l]*(r-l)
+        else:
+            return height[r]*(r-l)
