@@ -1,0 +1,16 @@
+def plusOne(self, digits):
+        if(digits == [9]):
+            return [1,0]
+        
+        endPos = len(digits)-1
+        digits[endPos] = (digits[endPos]+1)%10
+        while (digits[endPos])%10 == 0:
+            digits[endPos] = 0
+            digits[endPos-1]+=1
+            endPos-=1
+        
+        if(digits[0] == 0):
+            digits = [0]*(len(digits)+1)
+            digits[0] = 1
+            
+        return digits
