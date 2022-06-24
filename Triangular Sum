@@ -1,0 +1,10 @@
+def triangularSum(self, nums):
+            if(len(nums) <= 2):
+                if(len(nums) == 2):
+                    return (nums[0]+nums[1])%10
+                else: 
+                    return nums[0]
+            curRow = [0]*(len(nums)-1)
+            for i in range(0, len(nums)-1):
+                curRow[i] = (nums[i+1]+nums[i])%10 
+            return self.triangularSum(curRow)
