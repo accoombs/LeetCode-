@@ -1,0 +1,30 @@
+def searchInsert(self, nums, target):
+
+        right = len(nums)-1
+        left = 0
+        
+        if(nums[left] == target):
+                return left
+        elif(nums[right] == target):
+                return right
+        elif(target < nums[0]):
+            return 0
+        elif(target > nums[len(nums)-1]):
+            return len(nums)
+        
+        while(left<=right):
+            if(nums[left] == target):
+                return left
+            elif(nums[right] == target):
+                return right
+            elif(nums[(left+right)//2] == target):
+                return (left+right)//2
+            elif(nums[(left+right)//2] > target):
+                right = (left+right)//2-1
+            elif(nums[(left+right)//2] < target):
+                left = (left+right)//2+1
+        
+        if(target < nums[left]):
+            return left
+        elif(target > nums[left]):
+            return left+1
