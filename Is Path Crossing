@@ -1,0 +1,19 @@
+def isPathCrossing(self, path):
+        coord = [0,0] 
+        visited = []
+        visited.append([coord[0],coord[1]])
+        
+        for i in path:
+            if i == 'N':
+                coord[0]+=1
+            elif i == 'S':
+                coord[0]-=1
+            elif i == 'E':
+                coord[1]+=1
+            elif i == 'W':
+                coord[1]-=1
+            if([coord[0],coord[1]] in visited):
+                print(coord)
+                return True
+            visited.append([coord[0], coord[1]])
+        return False
