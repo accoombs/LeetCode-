@@ -1,0 +1,21 @@
+def floodFill(self, image, sr, sc, color):
+        return self.fill(image, sr, sc, color)
+    
+    def fill(self, image, sr, sc, color):
+        current = image[sr][sc]
+        if(current == color):
+            return image
+        if(sr < len(image)-1 and image[sr+1][sc] == current):
+            image[sr][sc] = color
+            image = self.fill(image, sr+1, sc, color)
+        if(sr>0 and image[sr-1][sc] == current):
+            image[sr][sc] = color
+            image = self.fill(image, sr-1, sc, color)
+        if(sc < len(image[sr])-1 and image[sr][sc+1] == current):
+            image[sr][sc] = color
+            image = self.fill(image, sr, sc+1, color)
+        if(sc > 0 and image[sr][sc-1] == current):
+            image[sr][sc] = color
+            image = self.fill(image, sr, sc-1, color)
+        image[sr][sc] = color
+        return image
