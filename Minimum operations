@@ -1,0 +1,12 @@
+ def minOperations(self, grid, x):
+        moves = 0
+        values = []
+        for r in grid:
+            for c in r:
+                values.append(c)
+        values.sort()
+        med = values[len(values)//2]
+        for i in values:
+            if(abs(i-med)%x !=0): return -1
+            moves+=(abs(i-med))//x
+        return moves
