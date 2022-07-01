@@ -1,0 +1,12 @@
+def shiftingLetters(self, s, shifts):
+        
+        final = ""
+        total = 0
+        for i in shifts:
+            total+=i
+        
+        for l in range(len(shifts)):
+            final+=(chr(ord('a')+(((ord(s[l])-ord('a'))+total)%26)))
+            total-= shifts[l]
+        return final
+    
