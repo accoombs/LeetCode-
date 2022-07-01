@@ -1,0 +1,15 @@
+def merge(self, intervals):
+        intervals.sort()
+        min = intervals[0][0]
+        max = intervals[0][1]
+        combined = []
+        
+        for i in intervals:
+            if(i[0] > max):
+                combined.append([min,max])
+                min = i[0]
+                max = i[1]
+            elif(i[1]>max):
+                max = i[1]
+        combined.append([min,max])
+        return combined
