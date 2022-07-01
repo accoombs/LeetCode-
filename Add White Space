@@ -1,0 +1,7 @@
+def addSpaces(self, s, spaces):
+        index = 0
+        offset = 0
+        for i in spaces:
+            s = s[0:(i+offset)] + " " + s[(i+offset):len(s)]
+            offset+=1
+        return s
