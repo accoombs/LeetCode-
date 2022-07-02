@@ -1,0 +1,20 @@
+def maxArea(self, h, w, horizontalCuts, verticalCuts):
+        
+        verticalCuts.sort()
+        horizontalCuts.sort()
+        vertMax = verticalCuts[0]
+        horMax = horizontalCuts[0]
+        
+        for i in range(1, len(verticalCuts)):
+            if (verticalCuts[i] - verticalCuts[i-1]) > vertMax:
+                vertMax = verticalCuts[i] - verticalCuts[i-1]
+        if(w-verticalCuts[len(verticalCuts)-1] > vertMax):
+            vertMax = w-verticalCuts[len(verticalCuts)-1]
+        
+        for i in range(1, len(horizontalCuts)):
+            if (horizontalCuts[i] - horizontalCuts[i-1]) > horMax:
+                horMax = horizontalCuts[i] - horizontalCuts[i-1]
+        if(h-horizontalCuts[len(horizontalCuts)-1] > horMax):
+            horMax = h-horizontalCuts[len(horizontalCuts)-1]
+        
+        return (horMax*vertMax)%(10**9+7)
