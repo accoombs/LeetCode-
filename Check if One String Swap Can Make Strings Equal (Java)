@@ -1,0 +1,27 @@
+ public boolean areAlmostEqual(String s1, String s2) {
+    
+        if(s1.equals(s2))
+        {
+            return true;
+        }
+        int[] letters1 = new int[26];
+        int[] letters2 = new int[26];
+        
+        int difs = 0;
+        
+            for (int i = 0; i < s1.length(); i++)
+            {
+                if(s1.charAt(i) != s2.charAt(i))
+                {
+                    difs++;
+                }
+                letters1[Character.getNumericValue(s1.charAt(i)) - Character.getNumericValue('a')]+=1;
+                letters2[Character.getNumericValue(s2.charAt(i)) - Character.getNumericValue('a')]+=1;
+            }
+        
+        if(difs == 2 && Arrays.equals(letters1,letters2))
+        {
+            return true;
+        }
+        return false;
+    }
