@@ -1,0 +1,11 @@
+def minCostClimbingStairs(self, cost):
+        if len(cost) == 2: return min(cost[0], cost[1]) 
+        
+        curCost = [None]*len(cost)
+        curCost[0] = cost[0]
+        curCost[1] = cost[1]
+        
+        for i in range(2, len(cost)):
+            curCost[i] = cost[i] + min(curCost[i-1], curCost[i-2])
+        
+        return min(curCost[len(curCost)-1],curCost[len(curCost)-2])
