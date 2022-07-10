@@ -1,0 +1,11 @@
+def sumBase(self, n, k):
+        converted = self.baseCalc(n, k)
+        total = 0
+        for i in converted:
+            total+=int(i)
+        return total
+    
+    def baseCalc(self, n, k):
+        if(n>=k):
+            return str(n%k) + str(self.baseCalc(n//k, k))
+        else: return str(n)
