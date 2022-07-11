@@ -1,0 +1,8 @@
+    def canBeEqual(self, target, arr):
+        
+        targ = {}
+        test = {} 
+        for i in range(len(target)):
+            targ[target[i]] = 1+targ.get(target[i], 0)
+            test[arr[i]] = 1+test.get(arr[i], 0)
+        return cmp(test,targ) == 0
