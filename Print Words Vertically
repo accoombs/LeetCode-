@@ -1,0 +1,17 @@
+def printVertically(self, s):
+        words = s.split()
+        longest = 0
+
+        for i in words:
+            longest = max(longest, len(i))
+        vertical = ['']*longest
+        for i in range(len(words)):
+            for c in range(longest-len(words[i])):
+                words[i]+=' '
+        for i in range(longest):
+            lastLetter = 0
+            for l in range(len(words)):
+                vertical[i]+=words[l][i]
+                if(vertical[i][l] != ' '): lastLetter = l
+            vertical[i] = (vertical[i])[0:lastLetter+1]
+        return vertical
