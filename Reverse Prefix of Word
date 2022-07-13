@@ -1,0 +1,12 @@
+def reversePrefix(self, word, ch):
+        if(ch not in word):
+            return word
+        
+        new = ""
+        sub = ""
+        
+        sub = word[0: word.find(ch)+1]
+        for i in range(len(sub)-1,-1,-1):
+            new+= sub[i]
+        
+        return new+word[len(sub): len(word)]
