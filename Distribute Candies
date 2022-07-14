@@ -1,0 +1,7 @@
+def distributeCandies(self, candyType):
+        unique = set()
+        
+        for i in candyType:
+            if i not in unique: unique.add(i)
+        
+        return min(len(candyType)/2, len(unique))
