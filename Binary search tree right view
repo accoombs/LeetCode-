@@ -1,0 +1,18 @@
+def rightSideView(self, root):
+        if not root:
+            return
+            
+        queue = [root]
+        right = []
+        
+        while(queue):
+            right.append(queue[0].val)
+            temp = []
+            for r in queue:
+                if(r.right):
+                    temp.append(r.right)
+                if r.left:
+                    temp.append(r.left)
+            queue = temp
+            
+        return right    
