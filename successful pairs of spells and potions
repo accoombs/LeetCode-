@@ -1,0 +1,20 @@
+def successfulPairs(self, spells, potions, success):
+        potions.sort()
+        successes = [0]*(len(spells))
+        for s in range(len(spells)):
+            neccesary_strength = math.ceil(float(success)/float(spells[s]))
+            high = len(potions)
+            low = -1
+            mid = (high+low)/2
+            while(mid != low and mid != high):
+                mid = (high+low)/2
+                if(potions[mid] >= neccesary_strength):
+                    successes[s]= len(potions)-mid
+                    temp = mid
+                    mid = (mid+low)/2
+                    high = temp
+                else:
+                    temp = mid
+                    mid = (mid+high)/2
+                    low = temp  
+        return successes
