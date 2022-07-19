@@ -1,0 +1,11 @@
+def simplifiedFractions(self, n):
+        fracs = []
+        used = set()
+        if n==1: return 
+        
+        for i in range(2,n+1):
+            for c in range(1,i):
+                if((i%c != 0 and (float(c)/float(i)) not in used) or c==1):
+                    fracs.append(str(c)+'/'+str(i))
+                    used.add(float(c)/float(i))
+        return fracs
