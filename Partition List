@@ -1,0 +1,28 @@
+def partition(self, head, x):
+        if not head: return
+        cur = head
+        lower = ListNode()
+        same = ListNode()
+        while(cur):
+            temp = ListNode(cur.val)
+            if(temp.val<x): 
+                temp.next = lower.next
+                lower.next = temp
+            elif(cur.val>=x): 
+                temp.next = same.next
+                same.next = temp
+            cur = cur.next
+        
+        current = ListNode()
+        while(lower.next or same.next):
+            if same.next: 
+                temp = ListNode(same.next.val)
+                temp.next = current.next
+                current.next = temp
+                same = same.next
+            elif lower.next:
+                temp = ListNode(lower.next.val)
+                temp.next = current.next
+                current.next = temp
+                lower = lower.next
+        return current.next        
