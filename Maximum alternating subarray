@@ -1,0 +1,14 @@
+def maxAlternatingSum(self, nums):
+        if(len(nums) == 1): return nums[0]
+        ans = 0
+        point = 'top'
+        
+        for i in range(len(nums)-1):
+            if(point == 'top' and nums[i] > nums[i+1]):
+                ans+=nums[i]
+                point = 'bottom'
+            elif(point == 'bottom' and nums[i] < nums[i+1]):
+                ans-=nums[i]
+                point = 'top'
+        if(point == 'top' and nums[i+1]>0): return ans+nums[i+1]
+        return ans
